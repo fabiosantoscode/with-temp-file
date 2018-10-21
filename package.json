@@ -1,0 +1,46 @@
+{
+  "name": "with-temp-file",
+  "version": "1.0.0",
+  "description": "Call a function with a temporary file, and clean up when the function returns!",
+  "main": "index.js",
+  "scripts": {
+    "test": "istanbul cover ./node_modules/.bin/_mocha && coveralls < coverage/lcov.info",
+    "precommit": "npm run lint --silent && npm run test --silent",
+    "lint": "eslint --fix 'index.js' 'test/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabiosantoscode/with-temp-file.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fabiosantoscode/with-temp-file/issues"
+  },
+  "homepage": "https://github.com/fabiosantoscode/with-temp-file#readme",
+  "dependencies": {
+    "temp-dir": "^1.0.0",
+    "tempfile": "^2.0.0",
+    "user-async-function": "^1.1.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.2",
+    "eslint": "^5.7.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "husky": "^1.1.2",
+    "istanbul": "^1.1.0-alpha.1",
+    "mocha": "^3.0.0"
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "globals": {
+      "describe": false,
+      "it": false
+    }
+  }
+}
