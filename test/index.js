@@ -3,6 +3,7 @@
 var path = require('path')
 var fs = require('fs')
 var assert = require('assert').strict || require('assert')
+var Promise = require('es6-promise')
 var withTempFile = require('..')
 
 describe('with-temp-file', function () {
