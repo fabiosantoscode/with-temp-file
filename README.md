@@ -18,5 +18,14 @@ async function main () {
     })
 
     console.log(result)
+
+    const result2 = await withTempFile((ws, filename, cb) => {
+        ws.write(fileContents2())
+        ws.end()
+
+        cb()
+    })
+
+    console.log(result2)
 }
 ```
