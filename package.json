@@ -19,8 +19,6 @@
   },
   "homepage": "https://github.com/fabiosantoscode/with-temp-file#readme",
   "dependencies": {
-    "temp-dir": "^1.0.0",
-    "tempfile": "^2.0.0",
     "user-async-function": "^1.1.0",
     "uuid": "^3.3.2"
   },
