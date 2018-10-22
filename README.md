@@ -1,6 +1,6 @@
 # with-temp-file
 
-[![Build Status](https://travis-ci.org/fabiosantoscode/with-temp-file.svg?branch=master)](https://travis-ci.org/fabiosantoscode/with-temp-file)
+[![Build Status](https://travis-ci.org/fabiosantoscode/with-temp-file.svg?branch=master)](https://travis-ci.org/fabiosantoscode/with-temp-file) [![Coverage Status](https://coveralls.io/repos/github/fabiosantoscode/with-temp-file/badge.svg?branch=master)](https://coveralls.io/github/fabiosantoscode/with-temp-file?branch=master)
 
 Call a function with a temporary file, and clean up when the function returns!
 
