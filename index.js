@@ -6,8 +6,24 @@ var userAsyncFunction = require('user-async-function')
 
 module.exports = function withTempFile (fn, filename) {
   if (!filename) filename = tempfile()
-  return userAsyncFunction(fn, fs.createWriteStream(filename), filename).then(function (ret) {
-    setTimeout(function () { fs.unlink(filename, function () {}) }, 300)
+  function handleReturn (ret) {
+    var unlinked = false
+
+    setTimeout(unlink, 1000)
+    process.on('exit', unlink)
+
+    function unlink () {
+      if (unlinked) return
+      try { fs.unlinkSync(filename) } catch (_) {}
+      unlinked = true
+    }
+
     return ret
-  })
+  }
+  function handleError (error) {
+    handleReturn()
+    throw error
+  }
+  return userAsyncFunction(fn, fs.createWriteStream(filename), filename)
+    .then(handleReturn, handleError)
 }
