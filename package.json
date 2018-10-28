@@ -13,7 +13,8 @@
     "url": "git+https://github.com/fabiosantoscode/with-temp-file.git"
   },
   "files": [
-    "index.jS"
+    "index.js",
+    "vendor"
   ],
   "author": "",
   "license": "MIT",
