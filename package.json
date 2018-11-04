@@ -1,6 +1,6 @@
 {
   "name": "with-temp-file",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Call a function with a temporary file, and clean up when the function returns!",
   "main": "index.js",
   "scripts": {
