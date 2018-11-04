@@ -3,10 +3,12 @@
   "version": "1.0.6",
   "description": "Call a function with a temporary file, and clean up when the function returns!",
   "main": "index.js",
+  "types": "index.d.js",
   "scripts": {
-    "test": "istanbul cover ./node_modules/.bin/_mocha && coveralls < coverage/lcov.info",
+    "test": "npm run prepare --silent && istanbul cover ./node_modules/.bin/_mocha && coveralls < coverage/lcov.info",
+    "prepare": "tsc index.ts -d --outFile index.js",
     "precommit": "npm run lint --silent && npm run test --silent",
-    "lint": "eslint --fix 'index.js' 'test/*.js'"
+    "lint": "tslint --fix 'index.ts'"
   },
   "repository": {
     "type": "git",
@@ -29,21 +31,16 @@
   "devDependencies": {
     "coveralls": "^3.0.2",
     "es6-promise": "^4.2.5",
-    "eslint": "^5.7.0",
-    "eslint-config-standard": "^12.0.0",
+    "eslint": "^5.8.0",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "husky": "^1.1.2",
     "istanbul": "^1.1.0-alpha.1",
-    "mocha": "^3.0.0"
-  },
-  "eslintConfig": {
-    "extends": "standard",
-    "globals": {
-      "describe": false,
-      "it": false
-    }
+    "mocha": "^3.0.0",
+    "tslint": "^5.11.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.1.6"
   }
 }
