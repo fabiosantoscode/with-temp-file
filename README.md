@@ -6,6 +6,8 @@ Call a function with a temporary file, and clean up when the function returns!
 
 ## usage
 
+Call withTempFile with a function that takes the writeStream and optionally your own temporary file name. It will be called. It can return a promise or call the callback which is the third argument of the function.
+
 ```javascript
 const withTempFile = require('with-temp-file')
 
@@ -24,7 +26,7 @@ async function main () {
         ws.end()
 
         cb()
-    })
+    }, __dirname + '/.' + Math.random())
 
     console.log(result2)
 }
