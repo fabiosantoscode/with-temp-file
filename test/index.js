@@ -28,4 +28,11 @@ describe('with-temp-file', function () {
       return Promise.resolve()
     }, filePath)
   })
+  it('lets you unlink the file', function () {
+    return withTempFile(function (file, path) {
+      file.unlink()
+      assert(!fs.existsSync(path))
+      return Promise.resolve()
+    })
+  })
 })

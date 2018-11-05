@@ -12,22 +12,26 @@ Call withTempFile with a function that takes the writeStream and optionally your
 const withTempFile = require('with-temp-file')
 
 async function main () {
-    const result = await withTempFile((ws, filename) => {
-        ws.write(fileContents())
-        ws.end()
+  const result = await withTempFile((ws, filename) => {
+    ws.write(fileContents())
+    ws.end()
 
-        return fs.readFileSync(filename) + ''
-    })
+    return fs.readFileSync(filename) + ''
+  })
 
-    console.log(result)
+  console.log(result)
 
-    const result2 = await withTempFile((ws, filename, cb) => {
-        ws.write(fileContents2())
-        ws.end()
+  const result2 = await withTempFile((ws, filename, cb) => {
+    ws.write(fileContents2())
+    ws.end()
 
-        cb()
-    }, __dirname + '/.' + Math.random())
+    // We're done here
+    ws.unlink()
 
-    console.log(result2)
+    cb()
+  }, __dirname + '/.' + Math.random())
+
+  console.log(result2)
+
 }
 ```
