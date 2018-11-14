@@ -8,7 +8,7 @@
     "test": "npm run prepare --silent && istanbul cover ./node_modules/.bin/_mocha && coveralls < coverage/lcov.info",
     "prepare": "tsc index.ts -d --outFile index.js",
     "precommit": "npm run lint --silent && npm run test --silent",
-    "lint": "tslint --fix 'index.ts'"
+    "lint": "tslint -c tslint.json --fix 'index.ts'"
   },
   "repository": {
     "type": "git",
